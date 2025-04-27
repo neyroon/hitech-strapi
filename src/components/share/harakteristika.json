@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_share_harakteristika",
+  "info": {
+    "displayName": "Характеристика"
+  },
+  "options": {},
+  "attributes": {
+    "character": {
+      "type": "string",
+      "required": true
+    },
+    "character_value": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

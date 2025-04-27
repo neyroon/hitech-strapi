@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_share_marketplejs",
+  "info": {
+    "displayName": "Маркетплейс"
+  },
+  "options": {},
+  "attributes": {
+    "link": {
+      "type": "string"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

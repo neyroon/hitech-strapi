@@ -1,0 +1,19 @@
+{
+  "kind": "singleType",
+  "collectionName": "products_days",
+  "info": {
+    "singularName": "products-day",
+    "pluralName": "products-days",
+    "displayName": "Товары дня"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product"
+    }
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "singularName": "product",
+    "pluralName": "products",
+    "displayName": "Продукты",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "richtext",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "rating": {
+      "type": "decimal",
+      "required": true
+    },
+    "availability": {
+      "type": "enumeration",
+      "enum": [
+        "в наличии",
+        "под заказ"
+      ],
+      "required": true,
+      "default": "в наличии"
+    },
+    "is_new": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "is_discount": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "is_promotion": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "is_hit": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "products"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "device_types": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::device-type.device-type",
+      "inversedBy": "products"
+    },
+    "price": {
+      "type": "integer",
+      "required": true,
+      "default": 0
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "price_discount": {
+      "type": "integer"
+    },
+    "characters": {
+      "displayName": "Характеристика",
+      "type": "component",
+      "repeatable": true,
+      "component": "share.harakteristika"
+    },
+    "certificates": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "wb_link": {
+      "type": "string",
+      "required": true
+    },
+    "wb_price": {
+      "type": "integer",
+      "required": true
+    },
+    "color": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::color.color",
+      "inversedBy": "products"
+    }
+  }
+}

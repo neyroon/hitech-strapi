@@ -13,11 +13,13 @@
   "attributes": {
     "title": {
       "type": "string",
-      "default": "Заголовок"
+      "default": "Заголовок",
+      "required": true
     },
     "content": {
       "type": "richtext",
-      "default": "Контент"
+      "default": "Контент",
+      "required": true
     },
     "preview": {
       "type": "media",
@@ -31,7 +33,8 @@
       ]
     },
     "slug": {
-      "type": "string",
+      "type": "uid",
+      "targetField": "title",
       "required": true
     }
   }

@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "device_types",
+  "info": {
+    "singularName": "device-type",
+    "pluralName": "device-types",
+    "displayName": "Типы устройств",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "kategorii": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "device_types"
+    },
+    "products": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product.product",
+      "mappedBy": "device_types"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "situation": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::situation.situation",
+      "inversedBy": "device_types"
+    }
+  }
+}
