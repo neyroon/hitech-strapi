@@ -1,2 +1,2 @@
-const strapi = requeire("@strapi/strapi");
+const strapi = require("@strapi/strapi");
 strapi(/* {...} */).start();
