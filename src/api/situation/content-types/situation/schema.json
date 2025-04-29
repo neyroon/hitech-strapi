@@ -11,10 +11,6 @@
     "draftAndPublish": true
   },
   "attributes": {
-    "slug": {
-      "type": "uid",
-      "required": true
-    },
     "device_types": {
       "type": "relation",
       "relation": "oneToMany",
