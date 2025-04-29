@@ -129,6 +129,10 @@
       "relation": "manyToOne",
       "target": "api::color.color",
       "inversedBy": "products"
+    },
+    "wb_article": {
+      "type": "string",
+      "required": true
     }
   }
 }
