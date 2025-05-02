@@ -1,5 +1,23 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface ShareCzveta extends Struct.ComponentSchema {
+  collectionName: 'components_share_czveta';
+  info: {
+    description: '';
+    displayName: '\u0426\u0432\u0435\u0442\u0430';
+  };
+  attributes: {
+    color: Schema.Attribute.Relation<'oneToOne', 'api::color.color'>;
+    images: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    price: Schema.Attribute.Integer & Schema.Attribute.Required;
+    price_discount: Schema.Attribute.Integer;
+    wb_price: Schema.Attribute.Integer & Schema.Attribute.Required;
+  };
+}
+
 export interface ShareHarakteristika extends Struct.ComponentSchema {
   collectionName: 'components_share_harakteristika';
   info: {
@@ -25,6 +43,7 @@ export interface ShareMarketplejs extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'share.czveta': ShareCzveta;
       'share.harakteristika': ShareHarakteristika;
       'share.marketplejs': ShareMarketplejs;
     }

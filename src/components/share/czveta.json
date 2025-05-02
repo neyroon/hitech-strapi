@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_share_czveta",
+  "info": {
+    "displayName": "Цвета",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "color": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::color.color"
+    },
+    "price": {
+      "type": "integer",
+      "required": true
+    },
+    "wb_price": {
+      "type": "integer",
+      "required": true
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "price_discount": {
+      "type": "integer"
+    }
+  }
+}

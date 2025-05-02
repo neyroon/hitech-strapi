@@ -124,15 +124,14 @@
       "type": "integer",
       "required": true
     },
-    "color": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::color.color",
-      "inversedBy": "products"
-    },
     "wb_article": {
       "type": "string",
       "required": true
+    },
+    "colors": {
+      "type": "component",
+      "repeatable": true,
+      "component": "share.czveta"
     }
   }
 }
