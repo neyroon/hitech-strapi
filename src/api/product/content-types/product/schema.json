@@ -121,6 +121,12 @@
       "type": "component",
       "repeatable": true,
       "component": "share.czveta"
+    },
+    "promocodes": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::promokod.promokod",
+      "mappedBy": "products"
     }
   }
 }

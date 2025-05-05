@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "promokods",
+  "info": {
+    "singularName": "promokod",
+    "pluralName": "promokods",
+    "displayName": "Промокоды",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "string",
+      "required": true
+    },
+    "percentage_discount": {
+      "type": "integer",
+      "required": true
+    },
+    "products": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product.product",
+      "inversedBy": "promocodes"
+    }
+  }
+}

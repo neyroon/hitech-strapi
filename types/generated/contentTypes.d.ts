@@ -573,6 +573,10 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<0>;
     price_discount: Schema.Attribute.Integer;
+    promocodes: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::promokod.promokod'
+    >;
     publishedAt: Schema.Attribute.DateTime;
     rating: Schema.Attribute.Decimal & Schema.Attribute.Required;
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
@@ -608,6 +612,38 @@ export interface ApiProductsDayProductsDay extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     products: Schema.Attribute.Relation<'oneToMany', 'api::product.product'>;
     publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPromokodPromokod extends Struct.CollectionTypeSchema {
+  collectionName: 'promokods';
+  info: {
+    description: '';
+    displayName: '\u041F\u0440\u043E\u043C\u043E\u043A\u043E\u0434\u044B';
+    pluralName: 'promokods';
+    singularName: 'promokod';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::promokod.promokod'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    percentage_discount: Schema.Attribute.Integer & Schema.Attribute.Required;
+    products: Schema.Attribute.Relation<'manyToMany', 'api::product.product'>;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1165,6 +1201,7 @@ declare module '@strapi/strapi' {
       'api::device-type.device-type': ApiDeviceTypeDeviceType;
       'api::product.product': ApiProductProduct;
       'api::products-day.products-day': ApiProductsDayProductsDay;
+      'api::promokod.promokod': ApiPromokodPromokod;
       'api::situation.situation': ApiSituationSituation;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
