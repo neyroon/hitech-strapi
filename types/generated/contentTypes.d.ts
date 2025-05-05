@@ -468,6 +468,7 @@ export interface ApiColorColor extends Struct.CollectionTypeSchema {
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     value: Schema.Attribute.String &
+      Schema.Attribute.Required &
       Schema.Attribute.CustomField<'plugin::color-picker.color'>;
   };
 }
@@ -545,8 +546,6 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
       'manyToMany',
       'api::device-type.device-type'
     >;
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
-      Schema.Attribute.Required;
     images: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true

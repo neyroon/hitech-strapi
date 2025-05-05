@@ -11,7 +11,8 @@ export interface ShareCzveta extends Struct.ComponentSchema {
     images: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
-    >;
+    > &
+      Schema.Attribute.Required;
     price: Schema.Attribute.Integer & Schema.Attribute.Required;
     price_discount: Schema.Attribute.Integer;
     wb_price: Schema.Attribute.Integer & Schema.Attribute.Required;
