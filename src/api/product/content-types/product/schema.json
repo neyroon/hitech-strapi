@@ -127,6 +127,16 @@
       "relation": "manyToMany",
       "target": "api::promokod.promokod",
       "mappedBy": "products"
+    },
+    "instruction": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

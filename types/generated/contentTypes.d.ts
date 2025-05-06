@@ -551,6 +551,9 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
       true
     > &
       Schema.Attribute.Required;
+    instruction: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
     is_discount: Schema.Attribute.Boolean &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<false>;
